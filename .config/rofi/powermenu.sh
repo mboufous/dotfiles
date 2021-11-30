@@ -29,31 +29,13 @@ $reboot)
   systemctl reboot
   ;;
 $lock)
-  if [[ -f /usr/bin/i3lock ]]; then
-    i3lock-fancy
-  elif [[ -f /usr/bin/betterlockscreen ]]; then
-    betterlockscreen -l
-  fi
+    /home/$USER/.config/bspwm/scripts/i3lock-fancy/i3lock-fancy.sh
   ;;
 $suspend)
-  ans=$(confirm_exit &)
-  if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-    mpc -q pause
     amixer set Master mute
     systemctl suspend
-  elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-    exit 0
-  else
-    msg
-  fi
   ;;
 $logout)
-  if [[ "$DESKTOP_SESSION" == "Openbox" ]]; then
-    openbox --exit
-  elif [[ "$DESKTOP_SESSION" == "bspwm" ]]; then
     bspc quit
-  elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
-    i3-msg exit
-  fi
   ;;
 esac
