@@ -77,3 +77,6 @@ xset r rate 200 60
 
 # Clipboard
 pgrep -x xfce4-clipman > /dev/null || xfce4-clipman &
+
+#window max width
+~/.config/bspwm/scripts/single_window_monocle.sh $(bspc query -M -m) &
