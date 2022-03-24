@@ -79,4 +79,5 @@ xset r rate 200 60
 pgrep -x xfce4-clipman > /dev/null || xfce4-clipman &
 
 #window max width
-~/.config/bspwm/scripts/single_window_monocle.sh $(bspc query -M -m) &
+#ps -ef | grep single_window_monocle.sh | grep -v grep | awk '{print $2}' | xargs kill
+#~/.config/bspwm/scripts/single_window_monocle.sh $(bspc query -M -m) &

@@ -47,8 +47,8 @@ super + m
 	bspc desktop -l next
 
 # send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
+super + j
+    bspc node -n last.!automatic
 
 # swap the current node and the biggest window
 super + g
@@ -70,6 +70,7 @@ super + ctrl + {m,x,y,z}
 # focus/swap
 #
 
+    
 # focus the node in the given direction
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
